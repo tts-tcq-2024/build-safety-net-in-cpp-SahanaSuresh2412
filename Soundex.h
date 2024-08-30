@@ -4,5 +4,6 @@
 #include <string>
 
 std::string generateSoundex(const std::string& name);
+map<string, int> Soundex;
 
 #endif // SOUNDEX_H
