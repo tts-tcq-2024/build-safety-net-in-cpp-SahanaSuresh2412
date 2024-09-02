@@ -14,7 +14,7 @@ std::string generateSoundex(const std::string& name) {
     if (name.empty()) return "";
 
     std::string soundex(1, toupper(name[0]));
-    char prevCode = getSoundexCode(name[0], soundexMap);
+    char prevCode = getSoundexCode(name[0]);
 
     for (size_t i = 1; i < name.length() && soundex.length() < 4; ++i) {
         char code = getSoundexCode(name[i]);
