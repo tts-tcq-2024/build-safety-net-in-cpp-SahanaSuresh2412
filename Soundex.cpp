@@ -3,7 +3,7 @@
 #include <map>
 #include <string>
 
-char getSoundexCode(char c) {
+char getSoundexCode(char c, const std::map<char, char>& soundexMap) {
     c = toupper(c);
     c = toupper(c);
     auto it = soundexMap.find(c);
