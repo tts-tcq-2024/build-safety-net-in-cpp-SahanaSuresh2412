@@ -1,7 +1,3 @@
-#include <cctype>
-#include <map>
-#include <string>
-
 // Function to get the Soundex code for a character using a local map
 char getSoundexCode(char c, const std::map<char, char>& soundexMap) {
     c = toupper(c);
@@ -34,9 +30,7 @@ std::string generateSoundex(const std::string& name) {
         }
     }
 
-    while (soundex.length() < 4) {
-        soundex += '0';
-    }
+    soundex.resize(4, '0');
 
     return soundex;
 }
