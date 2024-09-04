@@ -1,8 +1,3 @@
-#include <iostream>
-#include <string>
-#include <cctype>
-#include <map>
- 
 using namespace std;
  
 char getSoundexCode(char c) {
@@ -47,16 +42,4 @@ std::string generateSoundex(const std::string& name) {
     
  
     return soundex;
-}
- 
- 
-int main() {
-    std::string name;
-    std::cout << "Enter a name: ";
-    std::cin >> name;
-
-    std::string soundexCode = generateSoundex(name);
-    std::cout << "Soundex code for " << name << " is " << soundexCode << std::endl;
-
-    return 0;
 }
