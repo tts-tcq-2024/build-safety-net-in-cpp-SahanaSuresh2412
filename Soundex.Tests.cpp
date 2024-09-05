@@ -35,7 +35,8 @@ TEST(SoundexTest, GenerateSoundexIfPrevLetterHWY) {
     size_t index = 2;
     std::string soundex;
     char lastCode = '0';
-    EXPECT_TRUE(generateSoundexIfPrevLetterHWY(name, index, soundex, lastCode));
+    generateSoundexIfPrevLetterHWY(name, index, soundex, lastCode);
+    EXPECT_EQ(soundex, "");
 }
 
 // Test for generateSoundexIfPrevLetterNotHWY
