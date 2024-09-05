@@ -87,18 +87,20 @@ TEST(SoundexTest, GenerateSoundexForLetter) {
 TEST(SoundexTest, HandleSoundex) {
     std::string name = "Example";
     std::string soundex;
+    soundex = "E";
     handleSoundex(soundex, name);
-    EXPECT_EQ(soundex, "251");
+    EXPECT_EQ(soundex, "E251");
 
     name = "Soundex";
-    soundex.clear();
+    soundex = "S"
     handleSoundex(soundex, name);
-    EXPECT_EQ(soundex, "532");
+    EXPECT_EQ(soundex, "S532");
 
     name = "HWY";
     soundex.clear();
+    soundex = "H";
     handleSoundex(soundex, name);
-    EXPECT_EQ(soundex, "000");
+    EXPECT_EQ(soundex, "HOOO");
 }
 
 // Test for generateSoundex
