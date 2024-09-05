@@ -1,3 +1,5 @@
+#inclue Soundex.h
+
 char getSoundexCode(char c) {
     std::map<char, char> soundexMap = {
  
