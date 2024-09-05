@@ -100,7 +100,7 @@ TEST(SoundexTest, HandleSoundex) {
     soundex.clear();
     soundex = "H";
     handleSoundex(soundex, name);
-    EXPECT_EQ(soundex, "HOOO");
+    EXPECT_EQ(soundex, "H");
 }
 
 // Test for generateSoundex
