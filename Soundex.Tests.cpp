@@ -92,7 +92,7 @@ TEST(SoundexTest, HandleSoundex) {
     EXPECT_EQ(soundex, "E251");
 
     name = "Soundex";
-    soundex = "S"
+    soundex = "S";
     handleSoundex(soundex, name);
     EXPECT_EQ(soundex, "S532");
 
