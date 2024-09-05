@@ -61,7 +61,7 @@ void handleSoundex(std::string& soundex, const std::string& name) {
  
 std::string generateSoundex(const std::string& name) {
     if (name.empty()) return "";
-    std::string soundex(1, toupper(name[0]);
+    std::string soundex(1, toupper(name[0]));
     handleSoundex(soundex, name);
     makeSoundeLengthFour(soundex);
     return soundex;
