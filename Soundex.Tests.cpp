@@ -7,7 +7,7 @@ TEST(SoundexTest, IsPrevLetterHWY) {
     size_t index = 1;
     EXPECT_TRUE(isPrevLetterHWY(name, index));
     
-    std::string name = "HAPPY";
+    name = "HAPPY";
     index = 2;
     EXPECT_FALSE(isPrevLetterHWY(name, index));
 }
