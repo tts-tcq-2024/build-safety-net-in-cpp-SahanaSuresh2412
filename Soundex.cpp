@@ -48,7 +48,7 @@ void generateSoundexForLetter(const std::string& name, size_t& i, std::string& s
 }
  
 void handleSoundex(std::string& soundex, const std::string& name) {
-    soundex = soundex(1, toupper(name[0]);
+    soundex(1, toupper(name[0]);
     char previousLetter = toupper(name[0]);
     char previousCode = getSoundexCode(name[0]);
     char lastLetter = toupper(name[0]);
