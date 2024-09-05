@@ -38,20 +38,20 @@ TEST(SoundexTest, GenerateSoundexIfPrevLetterHWY) {
     EXPECT_EQ(soundex, "0");
 }
 
-// // Test for generateSoundexIfPrevLetterNotHWY
-// TEST(SoundexTest, GenerateSoundexIfPrevLetterNotHWY) {
-//     std::string name = "ABCD";
-//     size_t index = 1;
-//     std::string soundex;
-//     char previousCode = '0';
-//     generateSoundexIfPrevLetterNotHWY(name, index, soundex, previousCode);
-//     EXPECT_EQ(soundex, "1");
+// Test for generateSoundexIfPrevLetterNotHWY
+TEST(SoundexTest, GenerateSoundexIfPrevLetterNotHWY) {
+    std::string name = "ABCD";
+    size_t index = 1;
+    std::string soundex;
+    char previousCode = '0';
+    generateSoundexIfPrevLetterNotHWY(name, index, soundex, previousCode);
+    EXPECT_EQ(soundex, "1");
 
-//     index = 2;
-//     previousCode = '1';
-//     generateSoundexIfPrevLetterNotHWY(name, index, soundex, previousCode);
-//     EXPECT_EQ(soundex, "12");
-// }
+    index = 2;
+    previousCode = '1';
+    generateSoundexIfPrevLetterNotHWY(name, index, soundex, previousCode);
+    EXPECT_EQ(soundex, "12");
+}
 
 // Test for makeSoundeLengthFour
 TEST(SoundexTest, MakeSoundeLengthFour) {
