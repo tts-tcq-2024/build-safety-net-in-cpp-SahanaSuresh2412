@@ -48,7 +48,8 @@ TEST(SoundexTest, GenerateSoundexIfPrevLetterNotHWY) {
     EXPECT_EQ(soundex, "1");
 
     index = 2;
-    generateSoundexIfPrevLetterNotHWY(name, index, soundex, '1');
+    previousCode = '1';
+    generateSoundexIfPrevLetterNotHWY(name, index, soundex, previousCode);
     EXPECT_EQ(soundex, "12");
 }
 
