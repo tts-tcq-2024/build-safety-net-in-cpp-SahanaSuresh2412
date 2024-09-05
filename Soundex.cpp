@@ -1,4 +1,4 @@
-#inclue Soundex.h
+#include Soundex.h
 
 char getSoundexCode(char c) {
     std::map<char, char> soundexMap = {
