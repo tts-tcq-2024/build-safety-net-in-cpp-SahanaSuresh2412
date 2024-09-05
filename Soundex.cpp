@@ -1,5 +1,3 @@
-using namespace std;
- 
 char getSoundexCode(char c) {
     std::map<char, char> soundexMap = {
  
