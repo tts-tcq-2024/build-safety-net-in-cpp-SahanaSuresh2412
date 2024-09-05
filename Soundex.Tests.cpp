@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Soundex.h"
+#include "Soundex.cpp"
 
 // Test for isPrevLetterHWY
 TEST(SoundexTest, IsPrevLetterHWY) {
