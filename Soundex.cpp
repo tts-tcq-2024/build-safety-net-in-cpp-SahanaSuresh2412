@@ -30,7 +30,7 @@ std::string generateSoundex(const std::string& name) {
         {
             soundex += code;
         }
-        else if ((name[i - 1] != 'A' && name[i - 1] != 'E' && name[i - 1] != 'I' && name[i - 1] != 'O' && name[i - 1] != 'U') && code != '0')
+        else if (code != '0')
         {
             soundex += code;
         }
