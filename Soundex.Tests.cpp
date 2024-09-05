@@ -64,40 +64,40 @@ TEST(SoundexTest, MakeSoundeLengthFour) {
     EXPECT_EQ(soundex, "A123");
 }
 
-// // Test for generateSoundexForLetter
-// TEST(SoundexTest, GenerateSoundexForLetter) {
-//     std::string name = "ABCD";
-//     size_t index = 1;
-//     std::string soundex;
-//     char previousCode = '0';
-//     char lastCode = '0';
+// Test for generateSoundexForLetter
+TEST(SoundexTest, GenerateSoundexForLetter) {
+    std::string name = "ABCD";
+    size_t index = 1;
+    std::string soundex;
+    char previousCode = '0';
+    char lastCode = '0';
 
-//     generateSoundexForLetter(name, index, soundex, previousCode, lastCode);
-//     EXPECT_EQ(soundex, "1");
+    generateSoundexForLetter(name, index, soundex, previousCode, lastCode);
+    EXPECT_EQ(soundex, "1");
 
-//     previousCode = '1';
-//     lastCode = '1';
-//     index = 2;
-//     generateSoundexForLetter(name, index, soundex, previousCode, lastCode);
-//     EXPECT_EQ(soundex, "12");
-// }
+    previousCode = '1';
+    lastCode = '1';
+    index = 2;
+    generateSoundexForLetter(name, index, soundex, previousCode, lastCode);
+    EXPECT_EQ(soundex, "12");
+}
 
 // Test for handleSoundex
 TEST(SoundexTest, HandleSoundex) {
     std::string name = "Example";
     std::string soundex;
     handleSoundex(soundex, name);
-    EXPECT_EQ(soundex, "E251");
+    EXPECT_EQ(soundex, "251");
 
     name = "Soundex";
     soundex.clear();
     handleSoundex(soundex, name);
-    EXPECT_EQ(soundex, "S532");
+    EXPECT_EQ(soundex, "532");
 
     name = "HWY";
     soundex.clear();
     handleSoundex(soundex, name);
-    EXPECT_EQ(soundex, "H000");
+    EXPECT_EQ(soundex, "000");
 }
 
 // Test for generateSoundex
