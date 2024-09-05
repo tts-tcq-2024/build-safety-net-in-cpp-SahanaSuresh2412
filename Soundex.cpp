@@ -66,4 +66,3 @@ std::string generateSoundex(const std::string& name) {
     makeSoundeLengthFour(soundex);
     return soundex;
 }
-has context menu
