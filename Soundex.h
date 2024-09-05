@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include <cctype>
-#include <map>
 
 std::string generateSoundex(const std::string& name);
 
