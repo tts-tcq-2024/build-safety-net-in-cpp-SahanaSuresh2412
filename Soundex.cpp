@@ -11,7 +11,7 @@ char getSoundexCode(char c) {
         {'M', '5'}, {'N', '5'},
         {'R', '6'}
     };
-    char c = toupper(c)
+    char c = toupper(c);
     auto it = soundexMap.find(c);
     return (it != soundexMap.end()) ? it->second : '0';
 }
