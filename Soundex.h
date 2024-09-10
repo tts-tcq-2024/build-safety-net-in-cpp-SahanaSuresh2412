@@ -6,7 +6,6 @@
 #include <cctype>
 #include <map>
 #include <list>
-#include <algorithm>
 
 std::string generateSoundex(const std::string& name);
 
