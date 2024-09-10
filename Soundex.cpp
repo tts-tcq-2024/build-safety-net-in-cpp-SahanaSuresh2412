@@ -1,7 +1,11 @@
 #include "Soundex.h"
 using namespace std;
- 
-char getSoundexCode(char c) {
+
+list<char> vowel = {'A','E','I','O','U'};
+list<char> letterHWY = {'H','W','Y'};
+
+char getSoundexCode(char c) 
+{
     std::map<char, char> soundexMap = {
         {'A', '0'}, {'E', '0'}, {'I', '0'}, {'O', '0'}, {'U', '0'},
         {'H', '0'}, {'W', '0'}, {'Y', '0'}, {'B', '1'}, {'F', '1'}, {'P', '1'}, {'V', '1'},
@@ -15,38 +19,48 @@ char getSoundexCode(char c) {
     return (it != soundexMap.end()) ? it->second : '0';
 }
 
-void handelSoundexCode(std::string& soundex, const std::string& name,char& code,char& prevCode,int index)
+bool checkIfLetterIsHWY(const std::string& name, size_t& index)
 {
-        std::cout << "Code " << code << std::endl;
-        if ((name[index - 1] == 'H' || name[index - 1] == 'W' || name[index - 1] == 'Y')  && code != prevCode && code != '0') 
-        {
-            soundex += code;
-        }
-        else if ((name[index - 1] != 'A' && name[index - 1] != 'E' && name[index - 1] != 'I' && name[index - 1] != 'O' && name[index - 1] != 'U'&& code != '0'))
-        {
-            soundex += code;
-        }
+    char letterToFind = name[index - 1];
+    auto it = std::find(letterHWY.begin(), letterHWY.end(), letterToFind);
+    return (it != letterHWY.end()) ? true : false;
+}
+
+bool checkIfLetterIsVowel(const std::string& name, size_t& index)
+{
+    char letterToFind = name[index - 1];
+    auto it = std::find(vowel.begin(), vowel.end(), letterToFind);
+    return (it != vowel.end()) ? true : false;
+}
+
+void handelSoundex(std::string& soundex, const std::string& name, size_t& index, char& code, char& prevCode)
+{
+    if (!checkIfLetterIsHWY(name, index)) 
+    {
+        soundex += code;
+    }
+    else if (checkIfLetterIsVowel(name, index))
+    {
+        soundex += code;
+    }
 }
  
-void createSoundex(std::string& soundex, const std::string& name){
+void createSoundexCode(std::string& soundex, const std::string& name){
     char prevCode = getSoundexCode(name[0]);
-    std::cout << "Soundex " << soundex << std::endl;
     for (size_t index = 1; index <= name.length() && soundex.length() < 4; ++index) {
         char code = getSoundexCode(toupper(name[index]));
-        if(code == prevCode){
-            continue;
+        if(code != prevCode && code != '0')
+        {
+            handelSoundex(soundex, name, index, code, prevCode);
         }
-        else handelSoundexCode(soundex, name, code, prevCode, index);
         prevCode = code;
     }
-    std::cout << "Soundex at end" << soundex << std::endl;
     soundex.resize(4, '0');
 }
  
 std::string generateSoundex(const std::string& name) {
     if (name.empty()) return "";
     std::string soundex(1, toupper(name[0]));
-    createSoundex(soundex, name);
- 
+    createSoundexCode(soundex, name);
     return soundex;
 }
