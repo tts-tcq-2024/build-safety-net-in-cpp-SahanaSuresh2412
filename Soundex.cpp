@@ -22,15 +22,27 @@ char getSoundexCode(char c)
 bool checkIfLetterIsHWY(const std::string& name, size_t& index)
 {
     char letterToFind = name[index - 1];
-    auto it = std::find(letterHWY.begin(), letterHWY.end(), letterToFind);
-    return (it != letterHWY.end()) ? true : false;
+    bool found = false;
+    for (char ch : letterHWY) {
+        if (ch == letterToFind) {
+            found = true;
+            break;
+        }
+    }
+    return found;
 }
 
 bool checkIfLetterIsVowel(const std::string& name, size_t& index)
 {
     char letterToFind = name[index - 1];
-    auto it = std::find(vowel.begin(), vowel.end(), letterToFind);
-    return (it != vowel.end()) ? true : false;
+    bool found = false;
+    for (char ch : vowel) {
+        if (ch == letterToFind) {
+            found = true;
+            break;
+        }
+    }
+    return found;
 }
 
 void handelSoundex(std::string& soundex, const std::string& name, size_t& index, char& code, char& prevCode)
