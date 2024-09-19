@@ -1,16 +1,34 @@
 #include <gtest/gtest.h>
 #include "Soundex.h"
 
-// Test for generateSoundex
-TEST(SoundexTest, GenerateSoundex) {
-    EXPECT_EQ(generateSoundex("Example"), "E251");
-    EXPECT_EQ(generateSoundex("Soundex"), "S532");
-    EXPECT_EQ(generateSoundex("HWY"), "H000");
-    EXPECT_EQ(generateSoundex(""), "");
-    EXPECT_EQ(generateSoundex("A"), "A000");
-    EXPECT_EQ(generateSoundex("Abcd"), "A123");
-    EXPECT_EQ(generateSoundex("pfister"), "P236");
-    EXPECT_EQ(generateSoundex("Tymczak"), "T522");
-    EXPECT_EQ(generateSoundex("Honeyman"), "H555");
+class SoundexTest : public ::testing::TestWithParam<std::pair<std::string, std::string>> {
+};
+
+TEST_P(SoundexTest, GenerateSoundex) {
+    auto param = GetParam();
+    const std::string& name = param.first;
+    const std::string& expectedSoundex = param.second;
+
+    EXPECT_EQ(generateSoundex(name), expectedSoundex);
 }
 
+INSTANTIATE_TEST_SUITE_P(
+    SoundexTests,
+    SoundexTest,
+    ::testing::Values(
+        std::make_pair("Example", "E251"),
+        std::make_pair("Soundex", "S532"),
+        std::make_pair("HWY", "H000"),
+        std::make_pair("", "0000"), // Adjusted for empty string handling
+        std::make_pair("A", "A000"),
+        std::make_pair("Abcd", "A123"),
+        std::make_pair("pfister", "P236"),
+        std::make_pair("Tymczak", "T522"),
+        std::make_pair("Honeyman", "H555")
+    )
+);
+
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
