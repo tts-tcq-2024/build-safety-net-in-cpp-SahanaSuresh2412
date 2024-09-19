@@ -47,25 +47,26 @@ bool checkIfLetterIsVowel(const std::string& name, size_t& index)
 
 void handelSoundex(std::string& soundex, const std::string& name, size_t& index, char& code, char& prevCode)
 {
-    if (!checkIfLetterIsHWY(name, index)) 
+    if(code != prevCode && code != '0')
     {
-        soundex += code;
+        if (!checkIfLetterIsHWY(name, index)) 
+        {
+            soundex += code;
+        }
+        else if (checkIfLetterIsVowel(name, index))
+        {
+            soundex += code;
+        }
     }
-    else if (checkIfLetterIsVowel(name, index))
-    {
-        soundex += code;
-    }
+    prevCode = code;
+        
 }
  
 void createSoundexCode(std::string& soundex, const std::string& name){
     char prevCode = getSoundexCode(name[0]);
     for (size_t index = 1; index <= name.length() && soundex.length() < 4; ++index) {
         char code = getSoundexCode(toupper(name[index]));
-        if(code != prevCode && code != '0')
-        {
             handelSoundex(soundex, name, index, code, prevCode);
-        }
-        prevCode = code;
     }
     soundex.resize(4, '0');
 }
