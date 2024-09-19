@@ -19,7 +19,7 @@ INSTANTIATE_TEST_SUITE_P(
         std::make_pair("Example", "E251"),
         std::make_pair("Soundex", "S532"),
         std::make_pair("HWY", "H000"),
-        std::make_pair("", "0000"), // Adjusted for empty string handling
+        std::make_pair("", ""),
         std::make_pair("A", "A000"),
         std::make_pair("Abcd", "A123"),
         std::make_pair("pfister", "P236"),
