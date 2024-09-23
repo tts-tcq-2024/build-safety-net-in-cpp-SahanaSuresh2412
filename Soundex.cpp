@@ -62,8 +62,8 @@ void handelSoundex(std::string& soundex, const std::string& name, size_t& index,
     if(code != prevCode && code != '0')
     {
      checkForLetters(soundex, name, index, code);
+        prevCode = code;
     }
-    prevCode = code;
 }
  
 void createSoundexCode(std::string& soundex, const std::string& name){
